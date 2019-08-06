@@ -191,6 +191,7 @@ def k_time_series(n_clusters,t_vector):
     
     from sklearn.cluster import KMeans
     import pandas as pd
+    import numpy as np
     
     #creating k-labels for time-series
     kmeans = KMeans(n_clusters=n_clusters).fit(t_vector)
