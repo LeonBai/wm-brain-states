@@ -191,6 +191,7 @@ def k_time_series(n_clusters,t_vector):
     
     from sklearn.cluster import KMeans
     import pandas as pd
+    import numpy as np
     
     #creating k-labels for time-series
     kmeans = KMeans(n_clusters=n_clusters).fit(t_vector)
@@ -271,6 +272,9 @@ def compare(t_vector, n_clusters):
     
     for i in range(n_clusters):
         plt.bar(dum.keys(), w[i])
+        axes = plt.gca()
+        axes.set_ylim([-1,1])
+        plt.grid(axis='y',lw=0.2)
         plt.title(i)
         plt.show()
 
