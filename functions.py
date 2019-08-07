@@ -272,6 +272,9 @@ def compare(t_vector, n_clusters):
     
     for i in range(n_clusters):
         plt.bar(dum.keys(), w[i])
+        axes = plt.gca()
+        axes.set_ylim([-1,1])
+        plt.grid(axis='y',lw=0.2)
         plt.title(i)
         plt.show()
 
