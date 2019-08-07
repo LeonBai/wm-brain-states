@@ -402,9 +402,7 @@ def mean_multiple_transition(n_clusters,series):
 
 #----------------------------------------------
 
-import pandas as pd
-
-def absent_states(time_series):
+def absent_states(time_series):    
     '''
     This function conuts number of absent clusters for each cluster.
     Requires the k_means function and the module txt file.       
@@ -417,7 +415,11 @@ def absent_states(time_series):
     -----------
     out: Pandas Data Frame (sum of absent states for each cluster)
     
-    '''        
+    '''     
+    
+    import pandas as pd
+    import numpy as np
+    
     absent_states_df = pd.DataFrame()
 
     for i in range(time_series.shape[2]):
