@@ -426,10 +426,10 @@ def absent_states(time_series):
     
     absent_states_df = pd.DataFrame()
 
-    for i in range(time_series.shape[2]):
-        for j in range(time_series.shape[3]):
+    for i in range(time_series.shape[1]):
+        for j in range(time_series.shape[2]):
             for k in range(time_series.shape[0]):
-                labels = time_series[k,:,i,j]
+                labels = time_series[k,i,j,:]
                 states = len(np.unique(labels))
                 absent = k+2-states
                 absent_states_df = pd.concat([absent_states_df, 
