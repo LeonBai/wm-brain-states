@@ -443,4 +443,28 @@ def absent_states(time_series):
         return absent_states_df
     
     
+
+def dwell_time(vector, label):
+    """Calculates the mean length of consecutives timepoints classified as a particular state
     
+    Parameters
+    ----------
+    vector: list of labeling (e.g. from clustering)
+    label: label with dwell time to calculate
+ 
+    Returns
+    ----------
+    dwell_time : the mean length of consecutives timepoints classified with particuar label
+    """
+    
+    import numpy as np
+    from itertools import groupby
+
+    answer = []
+
+    for key, iter in groupby(vector):
+        answer.append((key, len(list(iter))))
+
+    dwell_time = np.mean([x[1] for x in answer if x[0]==label])
+    
+    return(dwell_time)
